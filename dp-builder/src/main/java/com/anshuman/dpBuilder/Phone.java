@@ -8,14 +8,6 @@ public class Phone {
     private String typeC;
     private String zoomLens;
 
-    private Phone(PhoneBuilder phoneBuilder) {
-        this.camera = phoneBuilder.camera;
-        this.flash = phoneBuilder.flash;
-        this.externalMemory = phoneBuilder.externalMemory;
-        this.typeC = phoneBuilder.typeC;
-        this.zoomLens = phoneBuilder.zoomLens;
-    }
-
     @Override
     public String toString() {
         return "Phone{" +
@@ -28,39 +20,35 @@ public class Phone {
     }
 
     public static class PhoneBuilder {
-        private String camera;
-        private String flash;
-        private String externalMemory;
-        private String typeC;
-        private String zoomLens;
-
+        private Phone phone = new Phone();
+        
         public PhoneBuilder camera(String camera) {
-            this.camera = camera;
+            phone.setCamera(camera);
             return this;
         }
 
         public PhoneBuilder flash(String flash) {
-            this.flash = flash;
+            phone.setFlash(flash);
             return this;
         }
 
         public PhoneBuilder externalMemory(String externalMemory) {
-            this.externalMemory = externalMemory;
+            phone.setExternalMemor(externalMemory);
             return this;
         }
 
         public PhoneBuilder typeC(String typeC) {
-            this.typeC = typeC;
+            phone.setTypeC(typeC);
             return this;
         }
 
         public PhoneBuilder zoomLens(String zoomLens) {
-            this.zoomLens = zoomLens;
+            phone.setZoomLens(zoomLens);
             return this;
         }
 
         public Phone buildPhone() {
-            return new Phone(this);
+            return phone;
         }
     }
 }
