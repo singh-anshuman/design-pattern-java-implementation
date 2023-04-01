@@ -2,15 +2,11 @@ package com.anshuman.dpSingleton;
 
 public class EagerSingleton {
 
-    private static EagerSingleton instance;
+    // Instance created at the time of class loading
+    private static EagerSingleton instance = new EagerSingleton();
 
     public static EagerSingleton getInstance() {
         return instance;
-    }
-
-    {
-        //  Instance created at the time of class loading
-        instance = new EagerSingleton();
     }
 
     public void doSomething() {
